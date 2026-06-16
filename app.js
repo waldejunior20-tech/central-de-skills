@@ -5,7 +5,7 @@ const expanded = new Set();
 
 const slugify = n => n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const ghSearch = n => 'https://github.com/search?q=' + encodeURIComponent(n + ' claude skill') + '&type=repositories';
-const installOf = it => it.url ? 'npx skills add https://' + it.url : '';
+const installOf = it => (it.install && it.install.trim()) ? it.install.trim() : (it.url ? 'npx skills add https://' + it.url : '');
 const useOf = it => '/' + slugify(it.name);
 
 function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}a.remove();}
@@ -13,27 +13,27 @@ function copyClip(t){if(navigator.clipboard&&navigator.clipboard.writeText)retur
 function showToast(m){const t=document.getElementById('toast');t.innerHTML='<span class="toast-check">✓</span>'+m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3000);}
 function flash(b,l){const o=b.dataset.l||b.innerHTML;b.dataset.l=o;b.classList.add('ok');b.innerHTML=l;clearTimeout(b._t);b._t=setTimeout(()=>{b.classList.remove('ok');b.innerHTML=o;},1600);}
 
-function allInstall(){const s=new Set();DATA.forEach(g=>g.items.forEach(it=>{if(it.url)s.add('npx skills add https://'+it.url);}));return [...s];}
+function allInstall(){const s=new Set();DATA.forEach(g=>g.items.forEach(it=>{const c=installOf(it);if(c)s.add(c);}));return [...s];}
+const kindLabel={skill:'skill',plugin:'plugin',mcp:'MCP',agent:'agente',tool:'ferramenta'};
 
 function makeCard(it, color){
-  const inst=installOf(it); const use=useOf(it);
+  const inst=installOf(it);
   const card=document.createElement('article'); card.className='card';
   const badge=it.rank<=3?'<span class="card-badge">TOP '+it.rank+'</span>':'';
+  const tipo=kindLabel[it.kind]||'';
+  const tipoTag=tipo?'<span class="card-kind">'+tipo+'</span>':'';
   let actions;
-  if(it.url){
+  if(inst){
     actions='<button class="btn btn-install" type="button">⬇ instalar</button>'+
-            '<button class="btn btn-use" type="button">'+use+'</button>'+
             '<a class="repo-link" href="https://'+it.url+'" target="_blank" rel="noopener">repo ↗</a>';
   } else {
-    actions='<a class="btn btn-use" href="'+ghSearch(it.name)+'" target="_blank" rel="noopener" style="text-decoration:none">🔎 achar no GitHub</a>'+
-            '<a class="repo-link" href="'+ghSearch(it.name)+'" target="_blank" rel="noopener">buscar ↗</a>';
+    actions='<a class="btn btn-use" href="https://'+it.url+'" target="_blank" rel="noopener" style="text-decoration:none">abrir repo ↗</a>';
   }
-  card.innerHTML='<div class="card-top-tags"><span class="card-tag" style="color:'+color+'">#'+it.n+'</span>'+badge+'</div>'+
+  card.innerHTML='<div class="card-top-tags"><span class="card-tag" style="color:'+color+'">#'+it.n+'</span>'+tipoTag+badge+'</div>'+
     '<h4 class="card-title">'+it.name+'</h4><p class="card-desc">'+(it.desc||'')+'</p>'+
     '<div class="card-actions">'+actions+'</div>';
-  if(it.url){
+  if(inst){
     card.querySelector('.btn-install').onclick=e=>{e.stopPropagation();copyClip(inst).then(()=>{flash(e.currentTarget,'✓ Copiado!');showToast('<strong>'+it.name+'</strong> — comando de instalação copiado');});};
-    card.querySelector('.btn-use').onclick=e=>{e.stopPropagation();copyClip(use).then(()=>{flash(e.currentTarget,'✓ Copiado!');showToast('<strong>'+it.name+'</strong> — comando de uso <code>'+use+'</code> copiado');});};
   }
   return card;
 }

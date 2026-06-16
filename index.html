@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Central de Skills — 500 Claude Code Skills</title>
-<meta name="description" content="As 500 skills do Claude Code, por categoria: o que faz, como instalar e usar.">
+<title>NexSkills — As melhores skills do Claude Code</title>
+<meta name="description" content="NexSkills: as melhores skills, plugins e MCPs do Claude Code, curadas e por objetivo: o que faz e como instalar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,45 +14,44 @@
 <div class="container">
 
   <header class="header">
-    <div class="overline">500 Claude Code Skills · catálogo</div>
-    <h1 class="title">Central<br>de <span>Skills</span></h1>
-    <p class="subtitle">As <strong>500 skills, MCPs, hooks e agentes</strong> do Claude Code — organizadas por categoria, com o que cada uma faz e como <strong>instalar e usar</strong>. Top 10 em destaque por categoria.</p>
+    <div class="overline">Claude Code · curadoria</div>
+    <h1 class="title"><span>Nex</span>Skills</h1>
+    <div class="brand-tagline">a central de skills do Claude Code</div>
+    <p class="subtitle">As <strong>melhores skills, plugins e MCPs</strong> do Claude Code — escolhidas a dedo e organizadas por <strong>objetivo</strong>. Cada uma com o que faz e o comando pronto pra instalar.</p>
     <div class="badges-row">
-      <div class="badge"><span id="total-skills">0</span><small>skills catalogadas</small></div>
-      <div class="badge"><span id="total-cats">0</span><small>categorias</small></div>
-      <div class="badge"><span>10</span><small>em destaque por categoria</small></div>
+      <div class="badge"><span id="total-skills">0</span><small>skills verificadas</small></div>
+      <div class="badge"><span id="total-cats">0</span><small>objetivos</small></div>
+      <div class="badge"><span>100%</span><small>com link real</small></div>
     </div>
   </header>
 
   <div class="instruction-panel">
-    <div class="panel-title">Instalar ≠ Usar — os dois passos que confundem</div>
+    <div class="panel-title">Como usar — simples assim</div>
     <div class="panel-grid">
       <div class="step-col">
-        <span class="step-tag tag-green">PASSO 1 · INSTALAR</span>
-        <h4>Colocar a skill no Claude</h4>
-        <p>No <strong>Claude Code</strong>, o botão <strong>⬇ instalar</strong> copia o comando pronto. Cole no terminal.</p>
-        <div class="code-box"><span class="comment"># cole no terminal:</span><br><span class="cmd">npx skills add https://github.com/obra/superpowers</span></div>
-        <p style="color:var(--faint);font-size:12px">⚠ git clone só baixa os arquivos — não registra a skill.</p>
+        <span class="step-tag tag-green">PASSO 1 · ACHAR</span>
+        <h4>Escolha pelo objetivo</h4>
+        <p>Navegue pelas trilhas (escrever código, automatizar, conectar ferramentas...) ou <strong>busque</strong>. Cada card explica em português o que a skill faz.</p>
+        <p style="color:var(--faint);font-size:12px">🏷 A etiqueta mostra o tipo: skill, plugin, MCP ou agente.</p>
       </div>
       <div class="step-col">
-        <span class="step-tag tag-yellow">PASSO 2 · USAR</span>
-        <h4>Ativar como comando</h4>
-        <p>Depois de instalada, chame com <strong>/nome-da-skill</strong> ou só descrevendo a tarefa.</p>
-        <div class="code-box"><span class="comment"># vira comando após instalar:</span><br><span class="cmd">/superpowers</span> &nbsp;<span class="comment">planeja e executa</span></div>
-        <p style="color:var(--faint);font-size:12px">🔎 Skills sem link direto têm botão de busca no GitHub.</p>
+        <span class="step-tag tag-yellow">PASSO 2 · INSTALAR</span>
+        <h4>Copie e cole no terminal</h4>
+        <p>Clique em <strong>⬇ instalar</strong> e o comando pronto vai pra área de transferência. Cole no <strong>Claude Code</strong>.</p>
+        <div class="code-box"><span class="comment"># exemplo (cada skill tem o seu):</span><br><span class="cmd">claude mcp add context7 -- npx -y @upstash/context7-mcp</span></div>
       </div>
     </div>
   </div>
 
   <div class="section-header">
-    <h2 class="section-title"><span>500</span> A biblioteca</h2>
-    <span class="section-desc"><strong>⬇ instalar</strong> copia o <code>npx skills add</code> · <strong>/comando</strong> copia a ativação · cada categoria mostra o top 10 (clique em "ver todas").</span>
+    <h2 class="section-title">A biblioteca</h2>
+    <span class="section-desc"><strong>⬇ instalar</strong> copia o comando pronto de cada skill · todas com repositório real · cada objetivo mostra o top 10 (clique em "ver todas").</span>
   </div>
 
   <div class="bulk-action-banner">
     <div class="bulk-info">
-      <h5>⬇ Instalar as que têm link direto</h5>
-      <p>Copie (ou baixe) um script com os <code>npx skills add</code> disponíveis — rode uma vez no terminal.</p>
+      <h5>⬇ Instalar várias de uma vez</h5>
+      <p>Copie (ou baixe) um script com todos os comandos de instalação — rode no terminal.</p>
     </div>
     <div class="bulk-btns">
       <button class="btn-bulk" id="copyAll" type="button">copiar tudo</button>
@@ -62,7 +61,7 @@
   </div>
 
   <div class="search-wrap">
-    <input type="text" id="search" aria-label="Buscar skills" placeholder="Buscar entre as 500... (ex: segurança, mcp, pdf, testes, design)">
+    <input type="text" id="search" aria-label="Buscar skills" placeholder="Buscar... (ex: segurança, mcp, pdf, testes, design)">
   </div>
   <div class="filters" id="filters"></div>
 

@@ -23,8 +23,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
 .overline{font-family:var(--font-mono);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;border:1px solid var(--border);background:rgba(180,15,23,.06);padding:8px 16px;border-radius:999px}
 .overline::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
 .title{font-family:var(--font-display);font-weight:800;font-size:clamp(52px,9vw,120px);line-height:.9;letter-spacing:-.03em;color:var(--ink);text-transform:uppercase}
-.title span{color:var(--red);text-shadow:0 0 28px var(--glow);font-style:italic}
-.subtitle{max-width:660px;color:var(--muted);font-size:clamp(16px,2vw,19px);margin-top:26px;line-height:1.6}
+.title span{color:var(--red);text-shadow:0 0 28px var(--glow)}
+.brand-tagline{font-family:var(--font-mono);font-size:clamp(13px,1.6vw,16px);color:var(--muted);letter-spacing:.04em;margin-top:14px}
+.subtitle{max-width:660px;color:var(--muted);font-size:clamp(16px,2vw,19px);margin-top:22px;line-height:1.6}
 .subtitle strong{color:var(--ink);font-weight:600}
 .badges-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 .badge{border:1px solid var(--border);border-radius:14px;padding:14px 20px;background:linear-gradient(160deg,var(--surface),var(--bg-2));display:flex;flex-direction:column;gap:2px;min-width:120px}
@@ -84,6 +85,8 @@ input[type=text]::placeholder{color:var(--faint)}
 .card-rank{font-family:var(--font-display);font-weight:800;font-size:13px;color:var(--red)}
 .card-tag{font-family:var(--font-mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
 .card-badge{font-family:var(--font-mono);font-size:9px;color:var(--red);border:1px solid rgba(180,15,23,.4);background:rgba(180,15,23,.08);padding:2px 7px;border-radius:5px}
+.card-kind{font-family:var(--font-mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);border:1px solid var(--border);padding:2px 7px;border-radius:5px;margin-left:auto}
+.card-badge{margin-left:6px}
 .card-title{font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em;position:relative;z-index:1}
 .card-desc{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:18px;flex-grow:1;position:relative;z-index:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:65px}
 .card-actions{display:flex;gap:8px;align-items:center;position:relative;z-index:1;padding-right:52px}

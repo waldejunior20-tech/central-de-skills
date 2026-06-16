@@ -14,11 +14,8 @@ function useOf(it){
   if(it.kind==='agent') return 'use o agente ' + it.name;                 // fallback
   return 'use o ' + it.name;                                              // fallback
 }
-// rótulo curto mostrado no botão Usar
-function useLabel(it){
-  if(it.kind==='skill' || it.kind==='plugin') return useOf(it);           // mostra o /comando
-  return '▸ usar';                                                        // mcp/agent/tool: rótulo curto
-}
+// rótulo curto mostrado no botão Usar (uniforme em todos os tipos)
+function useLabel(it){ return '▸ usar'; }
 
 function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}a.remove();}
 function copyClip(t){if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(t).catch(()=>fallbackCopy(t));return Promise.resolve(fallbackCopy(t));}

@@ -6,7 +6,19 @@ const expanded = new Set();
 const slugify = n => n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const ghSearch = n => 'https://github.com/search?q=' + encodeURIComponent(n + ' claude skill') + '&type=repositories';
 const installOf = it => (it.install && it.install.trim()) ? it.install.trim() : (it.url ? 'npx skills add https://' + it.url : '');
-const useOf = it => '/' + slugify(it.name);
+// "Usar" inteligente por tipo: o que a pessoa digita/faz no Claude pra usar depois de instalada
+function useOf(it){
+  const slug = slugify(it.name);
+  if(it.kind==='skill' || it.kind==='plugin') return '/' + slug;          // vira comando slash
+  if(it.kind==='agent') return 'use o agente ' + it.name;                 // invoca o agente
+  if(it.kind==='mcp') return 'use o ' + it.name.replace(/ MCP.*/i,'') + ' para ...'; // pedido em linguagem natural
+  return 'use o ' + it.name + ' para ...';                                // tool / fallback
+}
+// rótulo curto mostrado no botão Usar
+function useLabel(it){
+  if(it.kind==='skill' || it.kind==='plugin') return useOf(it);           // mostra o /comando
+  return '▸ usar';                                                        // mcp/agent/tool: rótulo curto
+}
 
 function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}a.remove();}
 function copyClip(t){if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(t).catch(()=>fallbackCopy(t));return Promise.resolve(fallbackCopy(t));}
@@ -17,14 +29,16 @@ function allInstall(){const s=new Set();DATA.forEach(g=>g.items.forEach(it=>{con
 const kindLabel={skill:'skill',plugin:'plugin',mcp:'MCP',agent:'agente',tool:'ferramenta'};
 
 function makeCard(it, color){
-  const inst=installOf(it);
+  const inst=installOf(it); const use=useOf(it);
   const card=document.createElement('article'); card.className='card';
   const badge=it.rank<=3?'<span class="card-badge">TOP '+it.rank+'</span>':'';
   const tipo=kindLabel[it.kind]||'';
   const tipoTag=tipo?'<span class="card-kind">'+tipo+'</span>':'';
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   let actions;
   if(inst){
     actions='<button class="btn btn-install" type="button">⬇ instalar</button>'+
+            '<button class="btn btn-use" type="button" title="copiar como usar">'+esc(useLabel(it))+'</button>'+
             '<a class="repo-link" href="https://'+it.url+'" target="_blank" rel="noopener">repo ↗</a>';
   } else {
     actions='<a class="btn btn-use" href="https://'+it.url+'" target="_blank" rel="noopener" style="text-decoration:none">abrir repo ↗</a>';
@@ -34,6 +48,7 @@ function makeCard(it, color){
     '<div class="card-actions">'+actions+'</div>';
   if(inst){
     card.querySelector('.btn-install').onclick=e=>{e.stopPropagation();copyClip(inst).then(()=>{flash(e.currentTarget,'✓ Copiado!');showToast('<strong>'+it.name+'</strong> — comando de instalação copiado');});};
+    card.querySelector('.btn-use').onclick=e=>{e.stopPropagation();copyClip(use).then(()=>{flash(e.currentTarget,'✓ Copiado!');showToast('<strong>'+it.name+'</strong> — como usar: <code>'+esc(use)+'</code>');});};
   }
   return card;
 }

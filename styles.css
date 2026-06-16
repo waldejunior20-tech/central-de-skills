@@ -93,7 +93,7 @@ input[type=text]::placeholder{color:var(--faint)}
 .btn{font-family:var(--font-mono);font-size:11px;cursor:pointer;border-radius:8px;padding:8px 12px;transition:.16s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
 .btn-install{background:var(--red);color:#0a0405;border:1px solid var(--red);font-weight:700;flex-shrink:0}
 .btn-install:hover{background:var(--red-soft);box-shadow:0 0 16px var(--glow)}
-.btn-use{background:transparent;border:1px solid var(--border);color:var(--ink);overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.btn-use{background:transparent;border:1px solid var(--border);color:var(--ink);overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto;display:inline-block;line-height:1.4}
 .btn-use:hover{border-color:var(--red);color:var(--red-soft)}
 .btn.ok{background:#3ddc84!important;border-color:#3ddc84!important;color:#06140c!important;box-shadow:none!important;font-weight:700}
 .repo-link{position:absolute;bottom:20px;right:20px;font-family:var(--font-mono);font-size:10px;color:var(--faint);text-decoration:none;font-weight:700;z-index:1;transition:.16s}

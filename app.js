@@ -10,9 +10,9 @@ const installOf = it => (it.install && it.install.trim()) ? it.install.trim() : 
 function useOf(it){
   const slug = slugify(it.name);
   if(it.kind==='skill' || it.kind==='plugin') return '/' + slug;          // vira comando slash
-  if(it.kind==='agent') return 'use o agente ' + it.name;                 // invoca o agente
-  if(it.kind==='mcp') return 'use o ' + it.name.replace(/ MCP.*/i,'') + ' para ...'; // pedido em linguagem natural
-  return 'use o ' + it.name + ' para ...';                                // tool / fallback
+  if(it.use && it.use.trim()) return it.use.trim();                       // dica de uso real (mcp/agent/tool)
+  if(it.kind==='agent') return 'use o agente ' + it.name;                 // fallback
+  return 'use o ' + it.name;                                              // fallback
 }
 // rótulo curto mostrado no botão Usar
 function useLabel(it){

@@ -10,8 +10,8 @@ const useOf = it => '/' + slugify(it.name);
 
 function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}a.remove();}
 function copyClip(t){if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(t).catch(()=>fallbackCopy(t));return Promise.resolve(fallbackCopy(t));}
-function showToast(m){const t=document.getElementById('toast');t.innerHTML=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2200);}
-function flash(b,l){const o=b.dataset.l||b.innerHTML;b.dataset.l=o;b.classList.add('ok');b.innerHTML=l;clearTimeout(b._t);b._t=setTimeout(()=>{b.classList.remove('ok');b.innerHTML=o;},1500);}
+function showToast(m){const t=document.getElementById('toast');t.innerHTML='<span class="toast-check">✓</span>'+m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3000);}
+function flash(b,l){const o=b.dataset.l||b.innerHTML;b.dataset.l=o;b.classList.add('ok');b.innerHTML=l;clearTimeout(b._t);b._t=setTimeout(()=>{b.classList.remove('ok');b.innerHTML=o;},1600);}
 
 function allInstall(){const s=new Set();DATA.forEach(g=>g.items.forEach(it=>{if(it.url)s.add('npx skills add https://'+it.url);}));return [...s];}
 
@@ -32,8 +32,8 @@ function makeCard(it, color){
     '<h4 class="card-title">'+it.name+'</h4><p class="card-desc">'+(it.desc||'')+'</p>'+
     '<div class="card-actions">'+actions+'</div>';
   if(it.url){
-    card.querySelector('.btn-install').onclick=e=>{e.stopPropagation();copyClip(inst).then(()=>{flash(e.currentTarget,'✓ copiado');showToast('Comando de <strong>instalação</strong> copiado!');});};
-    card.querySelector('.btn-use').onclick=e=>{e.stopPropagation();copyClip(use).then(()=>{flash(e.currentTarget,'✓ copiado');showToast('Comando de <strong>uso</strong> copiado!');});};
+    card.querySelector('.btn-install').onclick=e=>{e.stopPropagation();copyClip(inst).then(()=>{flash(e.currentTarget,'✓ Copiado!');showToast('<strong>'+it.name+'</strong> — comando de instalação copiado');});};
+    card.querySelector('.btn-use').onclick=e=>{e.stopPropagation();copyClip(use).then(()=>{flash(e.currentTarget,'✓ Copiado!');showToast('<strong>'+it.name+'</strong> — comando de uso <code>'+use+'</code> copiado');});};
   }
   return card;
 }

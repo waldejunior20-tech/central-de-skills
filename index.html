@@ -3,74 +3,246 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexSkills — As melhores skills do Claude Code</title>
-<meta name="description" content="NexSkills: as melhores skills, plugins e MCPs do Claude Code, curadas e por objetivo: o que faz e como instalar.">
+<title>NexSkills — Turbine seu Claude Code com as melhores skills do mundo</title>
+<meta name="description" content="Acesso vitalício às 114 melhores skills, plugins e MCPs do Claude Code, curados a dedo. Pare de perder tempo garimpando — instale o que presta com um clique.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --bg-2:#101013; --surface:#141318; --surface-2:#1b1a20; --border:#2c2330;
+  --red:#e62630; --red-2:#ff3a44; --red-soft:#ff6b73; --glow:rgba(230,38,48,.4);
+  --ink:#ffffff; --muted:#b9b3bd; --faint:#7c7682; --green:#3ddc84;
+  --fd:'Archivo',sans-serif; --fb:'Manrope',sans-serif; --fm:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--muted);font-family:var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;line-height:1.6}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(1100px 620px at 82% -12%,rgba(230,38,48,.16),transparent 58%),
+             radial-gradient(900px 700px at -8% 14%,rgba(230,38,48,.08),transparent 56%);}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(230,38,48,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(230,38,48,.035) 1px,transparent 1px);
+  background-size:46px 46px;-webkit-mask-image:radial-gradient(circle at 50% 0,#000,transparent 78%);mask-image:radial-gradient(circle at 50% 0,#000,transparent 78%);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+
+/* CTA buttons */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--fm);font-weight:700;font-size:16px;cursor:pointer;border:none;border-radius:12px;padding:18px 34px;background:var(--red);color:#fff;text-decoration:none;transition:.18s;box-shadow:0 0 0 1px rgba(230,38,48,.4),0 14px 40px rgba(230,38,48,.25)}
+.cta:hover{background:var(--red-2);transform:translateY(-2px);box-shadow:0 0 0 1px rgba(230,38,48,.6),0 18px 50px rgba(230,38,48,.4)}
+.cta-sub{font-family:var(--fm);font-size:12.5px;color:var(--faint);margin-top:12px}
+.cta-ghost{background:transparent;color:var(--ink);box-shadow:none;border:1px solid var(--border)}
+.cta-ghost:hover{background:transparent;border-color:var(--red);color:var(--red-soft);box-shadow:none}
+
+/* HERO */
+.hero{padding:70px 0 60px;position:relative}
+.pill{display:inline-flex;align-items:center;gap:10px;font-family:var(--fm);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red-soft);border:1px solid rgba(230,38,48,.35);background:rgba(230,38,48,.08);padding:8px 16px;border-radius:999px;margin-bottom:26px}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
+h1.hero-title{font-family:var(--fd);font-weight:800;font-size:clamp(36px,6.2vw,68px);line-height:1.04;letter-spacing:-.02em;color:var(--ink)}
+h1.hero-title b{color:var(--red-2);text-shadow:0 0 32px var(--glow)}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:var(--muted);max-width:680px;margin:24px auto 0}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-cta-row{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.trust{margin-top:40px;display:flex;gap:30px;justify-content:center;flex-wrap:wrap;font-family:var(--fm);font-size:12px;color:var(--faint)}
+.trust b{color:var(--red-soft);font-size:22px;display:block;font-family:var(--fd);font-weight:800}
+.trust span{display:inline-block;text-align:center}
+
+/* sections */
+section{padding:64px 0}
+.eyebrow{font-family:var(--fm);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+h2{font-family:var(--fd);font-weight:800;font-size:clamp(28px,4vw,42px);color:var(--ink);letter-spacing:-.02em;line-height:1.1}
+h2 b{color:var(--red-2)}
+.lead{font-size:17px;color:var(--muted);max-width:680px;margin-top:16px}
+
+/* problem cards */
+.prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:36px}
+.prob{border:1px solid var(--border);border-radius:16px;padding:24px;background:linear-gradient(170deg,var(--surface),var(--bg-2))}
+.prob .x{font-size:22px;color:var(--red);margin-bottom:10px}
+.prob h4{font-family:var(--fd);font-weight:700;color:var(--ink);font-size:17px;margin-bottom:6px}
+.prob p{font-size:14px;color:var(--muted)}
+
+/* what you get */
+.get-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:40px}
+.get{border:1px solid var(--border);border-radius:18px;padding:28px;background:linear-gradient(170deg,var(--surface),var(--bg-2));position:relative;overflow:hidden;transition:.2s}
+.get:hover{border-color:rgba(230,38,48,.45);transform:translateY(-4px)}
+.get .ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;background:rgba(230,38,48,.1);border:1px solid rgba(230,38,48,.3);margin-bottom:18px}
+.get h3{font-family:var(--fd);font-weight:700;color:var(--ink);font-size:19px;margin-bottom:8px}
+.get p{font-size:14.5px;color:var(--muted)}
+
+/* categories proof */
+.cats{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;justify-content:center}
+.cat-chip{font-family:var(--fm);font-size:13px;color:var(--ink);border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:10px 18px;display:inline-flex;align-items:center;gap:9px}
+.cat-chip .dot{width:9px;height:9px;border-radius:50%}
+.cat-chip b{color:var(--faint);font-weight:700}
+
+/* offer / price */
+.offer{border:1px solid rgba(230,38,48,.4);border-radius:24px;padding:48px 40px;background:linear-gradient(160deg,rgba(230,38,48,.07),var(--bg-2) 60%);max-width:560px;margin:44px auto 0;text-align:center;position:relative;overflow:hidden}
+.offer::before{content:"";position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:400px;height:300px;background:radial-gradient(circle,rgba(230,38,48,.25),transparent 70%);pointer-events:none}
+.offer-tag{position:relative;font-family:var(--fm);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-soft);border:1px solid rgba(230,38,48,.4);border-radius:999px;padding:6px 14px;display:inline-block;margin-bottom:22px}
+.price-old{position:relative;font-family:var(--fm);color:var(--faint);text-decoration:line-through;font-size:18px}
+.price{position:relative;font-family:var(--fd);font-weight:800;color:var(--ink);font-size:clamp(48px,9vw,72px);line-height:1;margin:6px 0 4px}
+.price small{font-size:24px;color:var(--muted);font-weight:600}
+.price-note{position:relative;font-family:var(--fm);font-size:13px;color:var(--red-soft);margin-bottom:26px}
+.offer ul{position:relative;list-style:none;text-align:left;max-width:380px;margin:0 auto 28px;display:flex;flex-direction:column;gap:12px}
+.offer li{font-size:15px;color:var(--ink);display:flex;align-items:flex-start;gap:11px}
+.offer li::before{content:"✓";color:var(--green);font-weight:800;flex-shrink:0}
+.offer .cta{position:relative;width:100%}
+.guarantee{margin-top:22px;font-family:var(--fm);font-size:12.5px;color:var(--faint);display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* FAQ */
+.faq{max-width:720px;margin:36px auto 0}
+.faq details{border:1px solid var(--border);border-radius:14px;background:var(--surface);margin-bottom:12px;overflow:hidden}
+.faq summary{cursor:pointer;padding:20px 24px;font-family:var(--fd);font-weight:700;color:var(--ink);font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--red);font-size:22px;font-weight:400;transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 24px 20px;font-size:14.5px;color:var(--muted)}
+
+/* final cta */
+.final{text-align:center;padding:80px 0 90px}
+.final h2{margin-bottom:10px}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;font-family:var(--fm);font-size:12px;color:var(--faint)}
+footer a{color:var(--red-soft);text-decoration:none}
+
+@media(max-width:640px){
+  section{padding:48px 0}
+  .offer{padding:36px 24px}
+  .trust{gap:20px}
+}
+</style>
 </head>
 <body>
-<div class="container">
 
-  <header class="header">
-    <div class="overline">Claude Code · curadoria</div>
-    <h1 class="title"><span>Nex</span>Skills</h1>
-    <div class="brand-tagline">a central de skills do Claude Code</div>
-    <p class="subtitle">As <strong>melhores skills, plugins e MCPs</strong> do Claude Code — escolhidas a dedo e organizadas por <strong>objetivo</strong>. Cada uma com o que faz e o comando pronto pra instalar.</p>
-    <div class="badges-row">
-      <div class="badge"><span id="total-skills">0</span><small>skills verificadas</small></div>
-      <div class="badge"><span id="total-cats">0</span><small>objetivos</small></div>
-      <div class="badge"><span>100%</span><small>com link real</small></div>
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap center">
+    <div class="pill">NexSkills · Claude Code</div>
+    <h1 class="hero-title">Pare de garimpar.<br>Instale só as skills <b>que realmente valem</b>.</h1>
+    <p class="hero-sub">Existem milhares de skills, plugins e MCPs pro Claude Code — e a maioria é lixo. Eu testei e separei <strong>as 114 melhores do mundo</strong>, organizadas por objetivo, com o comando pronto pra instalar num clique.</p>
+    <div class="hero-cta-row">
+      <a href="#oferta" class="cta">Quero acesso vitalício →</a>
+      <a href="app.html" target="_blank" rel="noopener" class="cta cta-ghost">Ver o catálogo</a>
     </div>
-  </header>
-
-  <div class="instruction-panel">
-    <div class="panel-title">Como usar — simples assim</div>
-    <div class="panel-grid">
-      <div class="step-col">
-        <span class="step-tag tag-green">PASSO 1 · ACHAR</span>
-        <h4>Escolha pelo objetivo</h4>
-        <p>Navegue pelas trilhas (escrever código, automatizar, conectar ferramentas...) ou <strong>busque</strong>. Cada card explica em português o que a skill faz.</p>
-        <p style="color:var(--faint);font-size:12px">🏷 A etiqueta mostra o tipo: skill, plugin, MCP ou agente.</p>
-      </div>
-      <div class="step-col">
-        <span class="step-tag tag-yellow">PASSO 2 · INSTALAR</span>
-        <h4>Copie e cole no terminal</h4>
-        <p>Clique em <strong>⬇ instalar</strong> e o comando pronto vai pra área de transferência. Cole no <strong>Claude Code</strong>.</p>
-        <div class="code-box"><span class="comment"># exemplo (cada skill tem o seu):</span><br><span class="cmd">claude mcp add context7 -- npx -y @upstash/context7-mcp</span></div>
-      </div>
+    <div class="trust">
+      <span><b>114</b>skills curadas</span>
+      <span><b>6</b>objetivos</span>
+      <span><b>100%</b>com link real</span>
+      <span><b>∞</b>acesso vitalício</span>
     </div>
   </div>
+</header>
 
-  <div class="section-header">
-    <h2 class="section-title">A biblioteca</h2>
-    <span class="section-desc"><strong>⬇ instalar</strong> copia o comando pronto de cada skill · todas com repositório real · cada objetivo mostra o top 10 (clique em "ver todas").</span>
-  </div>
-
-  <div class="bulk-action-banner">
-    <div class="bulk-info">
-      <h5>⬇ Instalar várias de uma vez</h5>
-      <p>Copie (ou baixe) um script com todos os comandos de instalação — rode no terminal.</p>
-    </div>
-    <div class="bulk-btns">
-      <button class="btn-bulk" id="copyAll" type="button">copiar tudo</button>
-      <button class="btn-bulk btn-secondary" id="dlSh" type="button">baixar .sh</button>
-      <button class="btn-bulk btn-secondary" id="dlPs1" type="button">baixar .ps1</button>
+<!-- PROBLEM -->
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">O problema</div>
+    <h2>Você sabe que o Claude Code <b>pode muito mais</b> — mas não sabe por onde começar</h2>
+    <div class="prob-grid">
+      <div class="prob"><div class="x">✕</div><h4>Catálogo infinito</h4><p>Milhares de skills espalhadas em dezenas de repositórios. Achar a boa é caçar agulha no palheiro.</p></div>
+      <div class="prob"><div class="x">✕</div><h4>Metade não funciona</h4><p>Você instala, dá erro "No valid skills found", perde tempo e desiste. Link quebrado é frustração.</p></div>
+      <div class="prob"><div class="x">✕</div><h4>Tudo em inglês técnico</h4><p>Descrições confusas que não explicam pra que serve nem como usar de verdade.</p></div>
     </div>
   </div>
+</section>
 
-  <div class="search-wrap">
-    <input type="text" id="search" aria-label="Buscar skills" placeholder="Buscar... (ex: segurança, mcp, pdf, testes, design)">
+<!-- SOLUTION / WHAT YOU GET -->
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">A solução</div>
+    <h2>NexSkills faz a <b>curadoria</b> por você</h2>
+    <p class="lead" style="margin:16px auto 0">Acesso vitalício a uma central com só o que presta — cada skill com explicação em português e comando pronto. É só copiar, colar e usar.</p>
+    <div class="get-grid">
+      <div class="get"><div class="ic">⚡</div><h3>114 skills curadas a dedo</h3><p>As melhores skills, plugins e MCPs do ecossistema, separadas por objetivo. Todas testadas, com link real que instala de verdade.</p></div>
+      <div class="get"><div class="ic">♾️</div><h3>Atualizações vitalícias</h3><p>O ecossistema muda toda semana. Sempre que entra uma skill nova boa, ela aparece pra você — sem pagar de novo, pra sempre.</p></div>
+      <div class="get"><div class="ic">📘</div><h3>Guia de como usar</h3><p>Passo a passo simples de instalar e tirar proveito das skills — mesmo que você esteja começando agora no Claude Code.</p></div>
+      <div class="get"><div class="ic">💬</div><h3>Suporte e comunidade</h3><p>Tire dúvidas, peça skills novas e troque ideia com quem também usa. Você não fica sozinho.</p></div>
+    </div>
   </div>
-  <div class="filters" id="filters"></div>
+</section>
 
-  <div id="tracks-container"></div>
+<!-- PROOF / CATEGORIES -->
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">O que tem dentro</div>
+    <h2>Skills organizadas por <b>objetivo</b></h2>
+    <p class="lead" style="margin:16px auto 0">Você não procura por "tipo técnico". Procura pelo que quer fazer — e acha na hora.</p>
+    <div class="cats">
+      <span class="cat-chip"><span class="dot" style="background:#d13b42"></span>Escrever código melhor <b>15</b></span>
+      <span class="cat-chip"><span class="dot" style="background:#ff8a4c"></span>Automatizar tarefas <b>22</b></span>
+      <span class="cat-chip"><span class="dot" style="background:#22d3ee"></span>Conectar ferramentas (MCP) <b>20</b></span>
+      <span class="cat-chip"><span class="dot" style="background:#a78bfa"></span>Design e Frontend <b>16</b></span>
+      <span class="cat-chip"><span class="dot" style="background:#34d399"></span>Segurança <b>24</b></span>
+      <span class="cat-chip"><span class="dot" style="background:#fbbf24"></span>Conteúdo, dados e mídia <b>17</b></span>
+    </div>
+    <div style="margin-top:36px"><a href="app.html" target="_blank" rel="noopener" class="cta cta-ghost">Explorar o catálogo completo →</a></div>
+  </div>
+</section>
 
-</div>
+<!-- OFFER -->
+<section id="oferta">
+  <div class="wrap center">
+    <div class="eyebrow">A oferta</div>
+    <h2>Pague <b>uma vez</b>. Use pra <b>sempre</b>.</h2>
+    <div class="offer">
+      <span class="offer-tag">🚀 Oferta de lançamento</span>
+      <div class="price-old">De R$ 197</div>
+      <div class="price"><small>R$</small> 27</div>
+      <div class="price-note">pagamento único · preço de lançamento (sobe em breve)</div>
+      <ul>
+        <li>Acesso completo às 114 skills curadas</li>
+        <li>Atualizações vitalícias (skills novas pra sempre)</li>
+        <li>Guia de instalação e uso passo a passo</li>
+        <li>Suporte e comunidade exclusiva</li>
+        <li>Comando pronto: copiar, colar e usar</li>
+      </ul>
+      <a href="#" class="cta" id="btn-comprar">Garantir meu acesso agora →</a>
+      <div class="guarantee">🔒 Compra segura · acesso imediato</div>
+    </div>
+  </div>
+</section>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js"></script>
-<script src="app.js" defer></script>
+<!-- FAQ -->
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">Dúvidas</div>
+    <h2>Perguntas frequentes</h2>
+  </div>
+  <div class="wrap">
+    <div class="faq">
+      <details><summary>Preciso saber programar?</summary><p>Não precisa ser expert. As skills têm explicação em português e comando pronto — você só copia e cola no Claude Code. O guia te ajuda no resto.</p></details>
+      <details><summary>O que é o Claude Code?</summary><p>É a ferramenta de programação com IA da Anthropic (criadora do Claude). As skills do NexSkills turbinam o que ele consegue fazer: revisar código, automatizar tarefas, gerar imagens, conectar ferramentas e muito mais.</p></details>
+      <details><summary>É pagamento único mesmo?</summary><p>Sim. Você paga uma vez e tem acesso vitalício, incluindo todas as atualizações futuras. Sem mensalidade, sem pegadinha.</p></details>
+      <details><summary>As skills funcionam de verdade?</summary><p>Todas têm link real verificado e comando que instala. Diferente de listas soltas pela internet, aqui você não cai em "skill que não existe".</p></details>
+      <details><summary>Como recebo o acesso?</summary><p>Assim que o pagamento é confirmado, você recebe o acesso ao catálogo completo, ao guia e à comunidade.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap center">
+    <h2>Seu Claude Code merece <b>as melhores skills</b></h2>
+    <p class="lead" style="margin:0 auto 30px">Pare de perder tempo. Por menos que uma pizza, tenha pra sempre o que realmente vale.</p>
+    <a href="#oferta" class="cta">Quero acesso vitalício por R$ 27 →</a>
+    <div class="cta-sub">pagamento único · acesso imediato · atualizações pra sempre</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">NexSkills — a central de skills do Claude Code · <a href="app.html" target="_blank" rel="noopener">ver catálogo</a></div>
+</footer>
+
+<script>
+  // troque o href do botão pelo seu link de checkout (Kiwify/Hotmart/Stripe/etc)
+  var CHECKOUT_URL = ""; // <-- COLE SEU LINK DE PAGAMENTO AQUI
+  if(CHECKOUT_URL){
+    document.querySelectorAll('a.cta:not(.cta-ghost)').forEach(function(a){
+      if(a.getAttribute('href')==='#oferta'||a.id==='btn-comprar'){ /* mantém âncora pro topo da oferta nos secundários */ }
+    });
+    var btn=document.getElementById('btn-comprar'); if(btn) btn.href=CHECKOUT_URL;
+  }
+</script>
 </body>
 </html>

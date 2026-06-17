@@ -93,12 +93,12 @@ function init(){
 
   document.getElementById('search').addEventListener('input',render);
   const cmds=allInstall();
-  document.getElementById('copyAll').onclick=e=>copyClip(cmds.join('\n')).then(()=>showToast('Script com <strong>'+cmds.length+' instalações</strong> copiado!'));
+  const copyAllBtn=document.getElementById('copyAll'); if(copyAllBtn) copyAllBtn.onclick=e=>copyClip(cmds.join('\n')).then(()=>showToast('Script com <strong>'+cmds.length+' instalações</strong> copiado!'));
   const sh='#!/usr/bin/env bash\nset -e\n\n'+cmds.join('\n')+'\n';
   const ps1=cmds.join('\r\n')+'\r\n';
   const dl=(name,c)=>{const b=new Blob([c],{type:'text/plain'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u);};
-  document.getElementById('dlSh').onclick=()=>{dl('instalar-skills.sh',sh);showToast('Script <strong>.sh</strong> baixado!');};
-  document.getElementById('dlPs1').onclick=()=>{dl('instalar-skills.ps1',ps1);showToast('Script <strong>.ps1</strong> baixado!');};
+  const dlShBtn=document.getElementById('dlSh'); if(dlShBtn) dlShBtn.onclick=()=>{dl('instalar-skills.sh',sh);showToast('Script <strong>.sh</strong> baixado!');};
+  const dlPs1Btn=document.getElementById('dlPs1'); if(dlPs1Btn) dlPs1Btn.onclick=()=>{dl('instalar-skills.ps1',ps1);showToast('Script <strong>.ps1</strong> baixado!');};
   render();
 }
 

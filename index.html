@@ -5,6 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NexSkills — Turbine seu Claude Code com as melhores skills do mundo</title>
 <meta name="description" content="Acesso vitalício às 114 melhores skills, plugins e MCPs do Claude Code, curados a dedo. Pare de perder tempo garimpando — instale o que presta com um clique.">
+
+<!-- ============================================================
+     RASTREAMENTO DE ANÚNCIOS — cole seus IDs abaixo
+     1) Facebook/Meta Pixel: troque SEU_PIXEL_ID (2 lugares)
+     2) Google Analytics:     troque G-XXXXXXXXXX (2 lugares)
+     Enquanto estiver com o placeholder, o código fica inativo.
+     ============================================================ -->
+
+<!-- Meta Pixel -->
+<script>
+  var FB_PIXEL_ID = "SEU_PIXEL_ID"; // <-- COLE SEU PIXEL ID DO FACEBOOK
+  if(FB_PIXEL_ID && FB_PIXEL_ID.indexOf("SEU_")!==0){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', FB_PIXEL_ID); fbq('track', 'PageView');
+    window._nexFbReady = true;
+  }
+</script>
+
+<!-- Google Analytics (GA4) -->
+<script>
+  var GA_ID = "G-XXXXXXXXXX"; // <-- COLE SEU ID DO GOOGLE ANALYTICS
+  if(GA_ID && GA_ID.indexOf("G-X")!==0){
+    var s=document.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;gtag('js',new Date());gtag('config',GA_ID);
+  }
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -87,7 +121,12 @@ h2 b{color:var(--red-2)}
 .offer li{font-size:15px;color:var(--ink);display:flex;align-items:flex-start;gap:11px}
 .offer li::before{content:"✓";color:var(--green);font-weight:800;flex-shrink:0}
 .offer .cta{position:relative;width:100%}
-.guarantee{margin-top:22px;font-family:var(--fm);font-size:12.5px;color:var(--faint);display:flex;align-items:center;justify-content:center;gap:8px}
+.guarantee{margin-top:22px;font-family:var(--fm);font-size:12.5px;color:var(--faint);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.seal{position:relative;margin-top:26px;display:flex;align-items:center;gap:16px;text-align:left;border-top:1px solid var(--border);padding-top:24px}
+.seal-badge{flex-shrink:0;width:64px;height:64px;border-radius:50%;border:2px solid var(--green);color:var(--green);font-family:var(--fd);font-weight:800;font-size:22px;line-height:.9;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.seal-badge span{font-size:9px;letter-spacing:.1em;font-weight:700}
+.seal-txt{font-size:13px;color:var(--muted);line-height:1.5}
+.seal-txt strong{color:var(--ink)}
 
 /* FAQ */
 .faq{max-width:720px;margin:36px auto 0}
@@ -198,7 +237,11 @@ footer a{color:var(--red-soft);text-decoration:none}
         <li>Comando pronto: copiar, colar e usar</li>
       </ul>
       <a href="#" class="cta" id="btn-comprar">Garantir meu acesso agora →</a>
-      <div class="guarantee">🔒 Compra segura · acesso imediato</div>
+      <div class="guarantee">🔒 Compra segura · acesso imediato · 🛡️ 7 dias de garantia</div>
+      <div class="seal">
+        <div class="seal-badge">7<br><span>DIAS</span></div>
+        <div class="seal-txt"><strong>Garantia incondicional de 7 dias.</strong> Não achou útil? Devolvemos 100% do seu dinheiro, sem perguntas. O risco é todo nosso.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -215,7 +258,8 @@ footer a{color:var(--red-soft);text-decoration:none}
       <details><summary>O que é o Claude Code?</summary><p>É a ferramenta de programação com IA da Anthropic (criadora do Claude). As skills do NexSkills turbinam o que ele consegue fazer: revisar código, automatizar tarefas, gerar imagens, conectar ferramentas e muito mais.</p></details>
       <details><summary>É pagamento único mesmo?</summary><p>Sim. Você paga uma vez e tem acesso vitalício, incluindo todas as atualizações futuras. Sem mensalidade, sem pegadinha.</p></details>
       <details><summary>As skills funcionam de verdade?</summary><p>Todas têm link real verificado e comando que instala. Diferente de listas soltas pela internet, aqui você não cai em "skill que não existe".</p></details>
-      <details><summary>Como recebo o acesso?</summary><p>Assim que o pagamento é confirmado, você recebe o acesso ao catálogo completo, ao guia e à comunidade.</p></details>
+      <details><summary>Como recebo o acesso?</summary><p>Assim que o pagamento é confirmado, você recebe na hora o link de acesso ao catálogo completo, ao guia passo a passo e ao grupo de WhatsApp da comunidade.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Se achar que não foi útil pra você, é só pedir e devolvemos 100% do seu dinheiro, sem perguntas. O risco é todo nosso.</p></details>
     </div>
   </div>
 </section>
@@ -235,13 +279,27 @@ footer a{color:var(--red-soft);text-decoration:none}
 </footer>
 
 <script>
-  // troque o href do botão pelo seu link de checkout (Kiwify/Hotmart/Stripe/etc)
+  // ===== LINK DE PAGAMENTO — cole seu checkout (Kiwify/Hotmart/etc) =====
   var CHECKOUT_URL = ""; // <-- COLE SEU LINK DE PAGAMENTO AQUI
-  if(CHECKOUT_URL){
-    document.querySelectorAll('a.cta:not(.cta-ghost)').forEach(function(a){
-      if(a.getAttribute('href')==='#oferta'||a.id==='btn-comprar'){ /* mantém âncora pro topo da oferta nos secundários */ }
+
+  var btnComprar = document.getElementById('btn-comprar');
+  if(CHECKOUT_URL && btnComprar){
+    btnComprar.href = CHECKOUT_URL;
+    btnComprar.target = "_blank";
+  } else if(btnComprar){
+    // sem checkout ainda: avisa em vez de levar pra lugar nenhum
+    btnComprar.addEventListener('click', function(e){
+      e.preventDefault();
+      alert('Checkout em configuração — abrimos pra venda já já!');
     });
-    var btn=document.getElementById('btn-comprar'); if(btn) btn.href=CHECKOUT_URL;
+  }
+
+  // dispara evento de "iniciou checkout" pro Pixel/GA quando clica em comprar
+  if(btnComprar){
+    btnComprar.addEventListener('click', function(){
+      if(window.fbq){ fbq('track','InitiateCheckout',{value:27.00,currency:'BRL'}); }
+      if(window.gtag){ gtag('event','begin_checkout',{value:27.00,currency:'BRL'}); }
+    });
   }
 </script>
 </body>

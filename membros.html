@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>NexSkills — Área de Membros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;1,800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --bg-2:#101013; --surface:#141318; --surface-2:#1b1a20; --border:#2c2330;
+  --red:#e62630; --red-2:#ff3a44; --red-soft:#ff6b73; --glow:rgba(230,38,48,.4);
+  --ink:#ffffff; --muted:#b9b3bd; --faint:#7c7682; --green:#3ddc84;
+  --fd:'Archivo',sans-serif; --fb:'Manrope',sans-serif; --fm:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--muted);font-family:var(--fb);-webkit-font-smoothing:antialiased;position:relative;line-height:1.6;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(1100px 620px at 82% -12%,rgba(230,38,48,.16),transparent 58%),radial-gradient(900px 700px at -8% 14%,rgba(230,38,48,.08),transparent 56%);}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(230,38,48,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(230,38,48,.035) 1px,transparent 1px);
+  background-size:46px 46px;-webkit-mask-image:radial-gradient(circle at 50% 0,#000,transparent 78%);mask-image:radial-gradient(circle at 50% 0,#000,transparent 78%);}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.top{padding:64px 0 30px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:10px;font-family:var(--fm);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);border:1px solid rgba(61,220,132,.35);background:rgba(61,220,132,.08);padding:8px 16px;border-radius:999px;margin-bottom:22px}
+.pill::before{content:"✓";font-weight:800}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(30px,5vw,52px);color:var(--ink);letter-spacing:-.02em;line-height:1.05}
+h1 b{color:var(--red-2);text-shadow:0 0 30px var(--glow)}
+.sub{font-size:17px;color:var(--muted);max-width:560px;margin:16px auto 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:30px 0 10px}
+.mcard{border:1px solid var(--border);border-radius:18px;padding:28px;background:linear-gradient(170deg,var(--surface),var(--bg-2));text-decoration:none;display:block;transition:.2s;position:relative;overflow:hidden}
+.mcard:hover{border-color:rgba(230,38,48,.5);transform:translateY(-4px)}
+.mcard.wpp:hover{border-color:rgba(61,220,132,.5)}
+.mcard .ic{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:26px;background:rgba(230,38,48,.1);border:1px solid rgba(230,38,48,.3);margin-bottom:18px}
+.mcard.wpp .ic{background:rgba(61,220,132,.1);border-color:rgba(61,220,132,.3)}
+.mcard h3{font-family:var(--fd);font-weight:700;color:var(--ink);font-size:20px;margin-bottom:7px}
+.mcard p{font-size:14px;color:var(--muted)}
+.mcard .go{margin-top:16px;font-family:var(--fm);font-size:12px;font-weight:700;color:var(--red-soft)}
+.mcard.wpp .go{color:var(--green)}
+.note{margin:24px 0 60px;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:20px 24px;font-size:14px;color:var(--muted)}
+.note strong{color:var(--ink)}
+footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;font-family:var(--fm);font-size:12px;color:var(--faint)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="pill">Acesso liberado</div>
+    <h1>Bem-vindo ao <b>NexSkills</b> 🎉</h1>
+    <p class="sub">Seu acesso está ativo — pra sempre. Aqui está tudo que você precisa pra turbinar seu Claude Code agora mesmo.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="cards">
+    <a href="app.html" class="mcard">
+      <div class="ic">📚</div>
+      <h3>Catálogo de Skills</h3>
+      <p>As 114 skills curadas, por objetivo. Clique em instalar e cole o comando no Claude Code.</p>
+      <div class="go">Abrir catálogo →</div>
+    </a>
+    <a href="guia.html" class="mcard">
+      <div class="ic">🚀</div>
+      <h3>Guia passo a passo</h3>
+      <p>Como instalar o Claude Code e usar as skills do zero — mesmo se você está começando agora.</p>
+      <div class="go">Ver o guia →</div>
+    </a>
+    <a href="#" class="mcard wpp" id="btn-wpp" target="_blank" rel="noopener">
+      <div class="ic">💬</div>
+      <h3>Comunidade no WhatsApp</h3>
+      <p>Tire dúvidas, peça skills novas e troque ideia com quem também usa. Bem-vindo ao grupo!</p>
+      <div class="go">Entrar no grupo →</div>
+    </a>
+  </div>
+
+  <div class="note">
+    💡 <strong>Dica:</strong> salve esta página nos favoritos. Sempre que entrar uma skill nova, ela aparece no catálogo automaticamente — seu acesso é vitalício e as atualizações são gratuitas pra sempre.
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">NexSkills — a central de skills do Claude Code</div>
+</footer>
+
+<script>
+  // cole aqui o link do seu grupo de WhatsApp (ex: https://chat.whatsapp.com/XXXX)
+  var WHATSAPP_URL = ""; // <-- COLE O LINK DO GRUPO AQUI
+  if(WHATSAPP_URL){ var b=document.getElementById('btn-wpp'); if(b) b.href=WHATSAPP_URL; }
+  else { var b2=document.getElementById('btn-wpp'); if(b2){ b2.addEventListener('click',function(e){e.preventDefault();alert('Link do grupo em breve! Em instantes você recebe o convite.');}); } }
+</script>
+</body>
+</html>

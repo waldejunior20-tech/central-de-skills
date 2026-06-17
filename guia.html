@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>NexSkills — Guia passo a passo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;1,800&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --bg-2:#101013; --surface:#141318; --surface-2:#1b1a20; --border:#2c2330;
+  --red:#e62630; --red-2:#ff3a44; --red-soft:#ff6b73; --glow:rgba(230,38,48,.4);
+  --ink:#ffffff; --muted:#b9b3bd; --faint:#7c7682; --green:#3ddc84;
+  --fd:'Archivo',sans-serif; --fb:'Manrope',sans-serif; --fm:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--muted);font-family:var(--fb);-webkit-font-smoothing:antialiased;position:relative;line-height:1.65;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(1100px 620px at 82% -12%,rgba(230,38,48,.13),transparent 58%);}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(230,38,48,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(230,38,48,.03) 1px,transparent 1px);
+  background-size:46px 46px;-webkit-mask-image:radial-gradient(circle at 50% 0,#000,transparent 78%);mask-image:radial-gradient(circle at 50% 0,#000,transparent 78%);}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+.back{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:12px;color:var(--faint);text-decoration:none;margin-top:30px}
+.back:hover{color:var(--red-soft)}
+.top{padding:18px 0 24px;text-align:center}
+.eyebrow{font-family:var(--fm);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(30px,5vw,48px);color:var(--ink);letter-spacing:-.02em;line-height:1.05}
+.sub{font-size:16px;color:var(--muted);max-width:560px;margin:14px auto 0}
+.step{border:1px solid var(--border);border-radius:18px;background:linear-gradient(170deg,var(--surface),var(--bg-2));padding:28px 28px 26px;margin-bottom:18px;position:relative}
+.step-n{position:absolute;top:-14px;left:24px;width:36px;height:36px;border-radius:10px;background:var(--red);color:#fff;font-family:var(--fd);font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px var(--glow)}
+.step h3{font-family:var(--fd);font-weight:700;color:var(--ink);font-size:21px;margin:10px 0 10px}
+.step p{font-size:15px;color:var(--muted);margin-bottom:12px}
+.step a{color:var(--red-soft)}
+.step ul{margin:0 0 6px 18px;font-size:14.5px;color:var(--muted)}
+.step ul li{margin-bottom:6px}
+.code{background:#050506;border:1px solid var(--border);border-radius:10px;padding:13px 16px;font-family:var(--fm);font-size:13px;color:#e8e4e6;overflow-x:auto;position:relative;margin:4px 0}
+.code .c{color:var(--faint)}
+.tip{border-left:3px solid var(--green);background:rgba(61,220,132,.05);border-radius:8px;padding:12px 16px;font-size:13.5px;color:var(--muted);margin-top:12px}
+.tip strong{color:var(--green)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--fm);font-weight:700;font-size:15px;border-radius:12px;padding:16px 30px;background:var(--red);color:#fff;text-decoration:none;transition:.18s;box-shadow:0 0 0 1px rgba(230,38,48,.4),0 12px 36px rgba(230,38,48,.22)}
+.cta:hover{background:var(--red-2);transform:translateY(-2px)}
+.final{text-align:center;padding:30px 0 70px}
+footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;font-family:var(--fm);font-size:12px;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="membros.html" class="back">← voltar pra área de membros</a>
+  <div class="top">
+    <div class="eyebrow">Guia passo a passo</div>
+    <h1>Do zero ao primeiro <span style="color:var(--red-2)">comando</span></h1>
+    <p class="sub">Em 4 passos você instala o Claude Code e usa sua primeira skill. Não precisa ser programador.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-n">1</div>
+    <h3>Instale o Claude Code</h3>
+    <p>O Claude Code é a ferramenta de IA da Anthropic que roda no seu computador. Baixe e instale seguindo o site oficial:</p>
+    <ul>
+      <li>Acesse <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a></li>
+      <li>Baixe a versão pro seu sistema (Windows, Mac ou Linux)</li>
+      <li>Faça login com sua conta Claude (ou crie uma grátis)</li>
+    </ul>
+    <div class="tip"><strong>Dica:</strong> no Windows, abra o "Terminal" ou "PowerShell" pra rodar os comandos. No Mac, abra o "Terminal".</div>
+  </div>
+
+  <div class="step">
+    <div class="step-n">2</div>
+    <h3>Abra o catálogo e escolha uma skill</h3>
+    <p>No <a href="app.html">catálogo NexSkills</a>, navegue pelas trilhas (Escrever código, Automatizar, Design...) ou use a busca. Cada card explica em português o que a skill faz.</p>
+    <p>Achou uma que quer? Olhe a etiqueta do tipo: <strong>skill</strong>, <strong>plugin</strong>, <strong>MCP</strong> ou <strong>agente</strong>.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-n">3</div>
+    <h3>Copie o comando e cole no Claude Code</h3>
+    <p>Clique no botão <strong>⬇ instalar</strong> do card — o comando vai pra sua área de transferência. Cole no terminal do Claude Code e dê enter. Exemplo:</p>
+    <div class="code"><span class="c"># o botão copia algo assim:</span><br>npx skills add github.com/obra/superpowers</div>
+    <div class="code"><span class="c"># um MCP fica assim:</span><br>claude mcp add context7 -- npx -y @upstash/context7-mcp</div>
+    <div class="tip"><strong>Importante:</strong> cada skill tem o comando certo já pronto. É só copiar e colar — não precisa decorar nada.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-n">4</div>
+    <h3>Use a skill</h3>
+    <p>Depois de instalada, clique no botão <strong>▸ usar</strong> do card pra copiar como ativá-la:</p>
+    <ul>
+      <li><strong>Skills e plugins:</strong> viram um comando, tipo <code style="font-family:var(--fm);color:var(--red-soft)">/superpowers</code></li>
+      <li><strong>MCPs e ferramentas:</strong> é só pedir pro Claude em português, ex: <em>"liste minhas issues do GitHub e abra um PR"</em></li>
+    </ul>
+    <div class="tip"><strong>Pronto!</strong> Repita pra quantas skills quiser. Quanto mais você instala, mais poderoso seu Claude Code fica.</div>
+  </div>
+
+  <div class="final">
+    <a href="app.html" class="cta">Ir pro catálogo e começar →</a>
+  </div>
+</div>
+<footer><div class="wrap">NexSkills — a central de skills do Claude Code</div></footer>
+</body>
+</html>

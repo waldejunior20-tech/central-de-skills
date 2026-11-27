@@ -85,11 +85,11 @@ GRADE FIXA (posições idênticas em todos os slides):
 5. RODAPÉ: seta fina verde limão apontando para a direita, no canto inferior direito.
 
 CORES FIXAS: verde limão #8CF000 usado só em: "link" do logo, barra de progresso, palavras
-de destaque, barrinha e seta, borda e etiqueta do painel CERTO. Vermelho #FF3B30 só na borda e etiqueta do painel ERRADO. Branco #FFFFFF nos textos. Fundo #0A0A0A.
+de destaque e seta, borda e etiqueta do painel CERTO. Vermelho #FF3B30 só na borda e etiqueta do painel ERRADO. Branco #FFFFFF nos textos. Fundo #0A0A0A.
 
 TIPOGRAFIA FIXA: a mesma família sans-serif geométrica (estilo Montserrat) em todos os textos.
 
-PROIBIDO: texto extra, texto em inglês, marca d'água, hashtag, emoji, bordas, mockup de
+PROIBIDO: texto extra, texto em inglês, marca d'água, hashtag, emoji, moldura em volta da imagem, mockup de
 celular, pessoas, mudar posição do logo ou do contador, trocar o verde por outra cor, erros
 de ortografia, letras duplicadas, texto legível dentro dos exemplos, mais de dois painéis, painéis lado a lado, inverter a ordem ERRADO/CERTO.
 === FIM DA TRAVA ===
